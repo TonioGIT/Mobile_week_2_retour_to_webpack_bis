@@ -6,9 +6,11 @@ import Routes from './routes'
 import MachinesList from './MachinesList.vue'
 import MachinesMap from './MachinesMap.vue'
 import Machine from './Machine.vue'
-// Vue.component('list-compo', MachinesList)
+import DatasAPI from './data_machines_api.vue'
+Vue.component('list-compo', MachinesList)
 Vue.component('map-compo', MachinesMap)
 Vue.component('machine-compo', Machine)
+Vue.component('data-compo', DatasAPI)
 
 Vue.use(VueRouter)
 Vue.use(VueGoogleMaps, {
