@@ -4,6 +4,7 @@
         <h1>{{ machineName }} {{name}}</h1>
         <h2 id="red" v-if="status" >{{machineStat}} KO...</h2>
         <h2 id="green" v-else>{{machineStat}} OK !</h2>
+        <h2>{{ machineCreate }} {{createdAt}}</h2>
         <h2>{{ machineDate }} {{checkedAt}}</h2>        
     </div>
 </template>
@@ -17,6 +18,7 @@
             return {
                 machineName: 'Machine name: ',
                 machineStat: 'Status: ',
+                machineCreate: 'Created at: ',
                 machineDate: 'Last time checked: ',    
             //   machine:{  
             //     name: 'Berlin Coffee Machine',
@@ -26,7 +28,7 @@
             }
         },
         props:[
-            'name', 'status', 'checkedAt'
+            'name', 'status', 'checkedAt', 'createdAt'
             ],
 
     }

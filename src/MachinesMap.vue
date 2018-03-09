@@ -10,7 +10,7 @@
             >
                 <gmap-marker v-for="position in machines"
                  :key="position.id"
-                  v-bind:position="{lat:position.latitude, lng:position.longitude}">
+                  v-bind:position="{lat:Number(position.latitude), lng:Number(position.longitude)}">
                 </gmap-marker>
             
         </gmap-map>
@@ -18,29 +18,44 @@
 </template>
 
 <script>
-    //import * as VueGoogleMaps from 'vue2-google-maps';
+    import axios from 'axios';
     export default {
         data() {
             return {
-                machines: [{
-                    id: 1,
-                    latitude: 45.1300,
-                    longitude: 6.1600,
-                },
-            {
-                    id: 2,
-                    latitude: 45.8000,
-                    longitude: 6.5000,
-                },
-            {
-                    id: 3,
-                    latitude: 45.1850,
-                    longitude: 5.7130,
-                }]
+                machines: [],
+                loading: false,
+                error: null,
             }
-        }
+            },
+        created() {
+            axios.get('https://machine-api-campus.herokuapp.com/api/machines')
+            .then(response => {
+                this.machines = response.data;
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }  
+        }  
+            //     machines: [{
+            //         id: 1,
+            //         latitude: 45.1300,
+            //         longitude: 6.1600,
+            //     },
+            // {
+            //         id: 2,
+            //         latitude: 45.8000,
+            //         longitude: 6.5000,
+            //     },
+            // {
+            //         id: 3,
+            //         latitude: 45.1850,
+            //         longitude: 5.7130,
+            //     }]
         
-    }
+        
+    
 </script>
 
 

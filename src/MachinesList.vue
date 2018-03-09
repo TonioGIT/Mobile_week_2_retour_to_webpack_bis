@@ -1,9 +1,10 @@
 <template>
     <div>
         <h1>Liste des machines</h1> 
-        <machine-compo id="listcadres" v-for="machine in machines" :key="machine.id" v-bind:name="machine.name" 
+        <machine-compo id="listcadres" v-for="machine in machines" :key="machine.id" 
+        v-bind:name="machine.name" 
         v-bind:status="machine.status" 
-        v-bind:checkedAt="machine.checkedAt">
+        v-bind:checkedAt="machine.checkedAt" v-bind:createdAt="machine.createdAt">
         </machine-compo>
     </div>
 </template>
@@ -14,7 +15,7 @@ import axios from 'axios';
     export default {
         data() {
             return {
-                machines: [], // au début la liste des machines est vide
+                machines: [],
                 loading: false,
                 error: null,
             }
