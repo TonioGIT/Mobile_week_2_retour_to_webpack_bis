@@ -1,35 +1,36 @@
 <template>
     <div>
         <h1>Liste des machines</h1> 
-        <machine-compo id="listcadres" v-for="machine in machines" :key="machine.id" 
+        <data-compo id="listcadres" v-for="machine in machines" :key="machine.id" 
         v-bind:name="machine.name" 
         v-bind:status="machine.status" 
         v-bind:checkedAt="machine.checkedAt" v-bind:createdAt="machine.createdAt">
-        </machine-compo>
+        </data-compo>
     </div>
 </template>
 
 <script>
 var event = new Date();
-import axios from 'axios';
+// import axios from 'axios';
     export default {
         data() {
             return {
-                machines: [],
-                loading: false,
-                error: null,
+                // machines: [],
+                // loading: false,
+                // error: null,
             }
         },
-        created() {
-            axios.get('https://machine-api-campus.herokuapp.com/api/machines')
-            .then(response => {
-                this.machines = response.data;
-                console.log(response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        }
+        props: ['machines']
+        // created() {
+        //     axios.get('https://machine-api-campus.herokuapp.com/api/machines')
+        //     .then(response => {
+        //         this.machines = response.data;
+        //         console.log(response);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
+        // }
         
             // machine: {  
             //     name: 'Berlin Coffee Machine',

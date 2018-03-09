@@ -1,5 +1,8 @@
 <template>
     <div>
+        <list-compo v-for="data in machines" :key="data.id" 
+        v-bind:machines="data.machines">
+        </list-compo>
 
     </div>
 </template>
@@ -23,7 +26,8 @@ import axios from 'axios';
             .catch(error => {
                 console.log(error);
             });
-        }  ,
+        } ,
+        props: ['machines']
         }
 </script>
 
