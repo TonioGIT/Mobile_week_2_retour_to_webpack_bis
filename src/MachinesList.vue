@@ -10,9 +10,24 @@
 
 <script>
 var event = new Date();
+import axios from 'axios';
     export default {
         data() {
             return {
+                machines: [], // au début la liste des machines est vide
+                loading: false,
+                error: null,
+            }
+        },
+        created() {
+            axios.get('https://machine-api-campus.herokuapp.com/api/machines')
+            .then(response => {
+                this.loading = response.data
+            })
+            .catch(e => {
+                this.error.push(e)
+            })
+        }
             // machine: {  
             //     name: 'Berlin Coffee Machine',
             //     status: false,
@@ -39,13 +54,8 @@ var event = new Date();
                 //     status: false,
                 //     checkedAt: event.toLocaleString('en-FR', { timeZone: 'UTC' }),
                 // }]
-                machines: [], // au début la liste des machines est vide
-                loading: false,
-                error: null,
-                hgsqfdhgsqdkfjkjf
-            }
-        }
-}
+        
+    }
 </script>
 
 <style scoped>
