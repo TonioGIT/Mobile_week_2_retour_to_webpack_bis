@@ -22,11 +22,12 @@ import axios from 'axios';
         created() {
             axios.get('https://machine-api-campus.herokuapp.com/api/machines')
             .then(response => {
-                this.loading = response.data
+                this.machines = response.data;
+                console.log(response);
             })
-            .catch(e => {
-                this.error.push(e)
-            })
+            .catch(error => {
+                console.log(error);
+            });
         }
             // machine: {  
             //     name: 'Berlin Coffee Machine',
