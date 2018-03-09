@@ -30,6 +30,7 @@ import axios from 'axios';
                 console.log(error);
             });
         }
+        
             // machine: {  
             //     name: 'Berlin Coffee Machine',
             //     status: false,

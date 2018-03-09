@@ -36,7 +36,7 @@
             .catch(error => {
                 console.log(error);
             });
-        }  
+        }  ,
         }  
             //     machines: [{
             //         id: 1,
