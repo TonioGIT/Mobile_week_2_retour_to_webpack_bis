@@ -2,7 +2,7 @@
   <div id="app">
     <img src="https://static1.squarespace.com/static/569c6a9ca12f44354e0c5ed8/t/56e06efc45bf213c2b52dce0/1457549074641/?format=1000w">
     <h1>{{ msg }}</h1>
-    <h2>Choisissez un module:</h2>
+    <h2>Choisissez 1 module:</h2>
     <ul>
       <li><router-link :to="'home'" id="button">HOME</router-link></li>
       <li><router-link :to="'machines'" id="button">LISTE DES MACHINES</router-link></li>
